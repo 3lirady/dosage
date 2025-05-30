@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TDDS Quiz</title>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #f9f9f9; }
+        .question { margin-bottom: 15px; padding: 10px; background: #fff; border: 1px solid #ddd; border-radius: 5px; }
+        .correct { color: green; font-weight: bold; }
+        .option { margin: 5px 0; }
+        .answer { display: none; margin-top: 10px; }
+    </style>
+    <script>
+        function showAnswer(qIndex, correctAnswer, selectedOption) {
+            const answerDiv = document.getElementById('answer' + qIndex);
+            const radios = document.getElementsByName('q' + qIndex);
+            radios.forEach(r => r.disabled = true);
+            if (selectedOption === correctAnswer) {
+                answerDiv.innerHTML = "✅ Right answer";
+            } else {
+                answerDiv.innerHTML = "❌ Wrong. Right answer: " + correctAnswer;
+            }
+            answerDiv.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h2>TDDS Quiz</h2>
+    
+    <div class="question">
+        <strong>1) Electroporation can be used effectively to circumvent the stratum corneum barrier through</strong>
+        <div class="option"><input type="radio" name="q0" onclick="showAnswer(0, 'Formation of aqueous pores in lamellar lipid regions of the SC', 'Formation of aqueous pores in lamellar lipid regions of the SC')"> Formation of aqueous pores in lamellar lipid regions of the SC</div><div class="option"><input type="radio" name="q0" onclick="showAnswer(0, 'Formation of aqueous pores in lamellar lipid regions of the SC', 'Creating a potential gradient through the skin')"> Creating a potential gradient through the skin</div><div class="option"><input type="radio" name="q0" onclick="showAnswer(0, 'Formation of aqueous pores in lamellar lipid regions of the SC', 'Increased migration of ionic drugs into the skin by electrostatic repulsion')"> Increased migration of ionic drugs into the skin by electrostatic repulsion</div><div class="option"><input type="radio" name="q0" onclick="showAnswer(0, 'Formation of aqueous pores in lamellar lipid regions of the SC', 'All of the above')"> All of the above</div>
+        <div class="answer" id="answer0"></div>
+    </div>
+    
+    <div class="question">
+        <strong>2) The role of coupling agent in sonophoresis is</strong>
+        <div class="option"><input type="radio" name="q1" onclick="showAnswer(1, 'Transfers ultrasonic energy from the phonophoresis device to the skin', 'Transfers ultrasonic energy from the phonophoresis device to the skin')"> Transfers ultrasonic energy from the phonophoresis device to the skin</div><div class="option"><input type="radio" name="q1" onclick="showAnswer(1, 'Transfers ultrasonic energy from the phonophoresis device to the skin', 'Disruption of the stratum corneum lipids')"> Disruption of the stratum corneum lipids</div><div class="option"><input type="radio" name="q1" onclick="showAnswer(1, 'Transfers ultrasonic energy from the phonophoresis device to the skin', 'Transport of drugs through the skin using ultrasound;')"> Transport of drugs through the skin using ultrasound;</div><div class="option"><input type="radio" name="q1" onclick="showAnswer(1, 'Transfers ultrasonic energy from the phonophoresis device to the skin', 'All of the above')"> All of the above</div>
+        <div class="answer" id="answer1"></div>
+    </div>
+    
+    <div class="question">
+        <strong>3) Laser ablation can act as enhancers of transdermal drug delivery system by</strong>
+        <div class="option"><input type="radio" name="q2" onclick="showAnswer(2, 'Inducing transient formation of channels within the SC', 'Inducing transient formation of channels within the SC')"> Inducing transient formation of channels within the SC</div><div class="option"><input type="radio" name="q2" onclick="showAnswer(2, 'Inducing transient formation of channels within the SC', 'Increased migration of ionic drugs into the skin by electrostatic repulsion')"> Increased migration of ionic drugs into the skin by electrostatic repulsion</div><div class="option"><input type="radio" name="q2" onclick="showAnswer(2, 'Inducing transient formation of channels within the SC', 'Disrupting the highly organized lipid bilayer packing')"> Disrupting the highly organized lipid bilayer packing</div><div class="option"><input type="radio" name="q2" onclick="showAnswer(2, 'Inducing transient formation of channels within the SC', 'Interacting with intercellular proteins')"> Interacting with intercellular proteins</div>
+        <div class="answer" id="answer2"></div>
+    </div>
+    
+    <div class="question">
+        <strong>4) Enhancers of Transdermal Drug Delivery System have been used to</strong>
+        <div class="option"><input type="radio" name="q3" onclick="showAnswer(3, 'modify the barrier properties of the skin', 'modify the barrier properties of the skin')"> modify the barrier properties of the skin</div><div class="option"><input type="radio" name="q3" onclick="showAnswer(3, 'modify the barrier properties of the skin', 'increasing diffusivity')"> increasing diffusivity</div><div class="option"><input type="radio" name="q3" onclick="showAnswer(3, 'modify the barrier properties of the skin', 'increasing partitioning')"> increasing partitioning</div><div class="option"><input type="radio" name="q3" onclick="showAnswer(3, 'modify the barrier properties of the skin', 'all of the above')"> all of the above</div>
+        <div class="answer" id="answer3"></div>
+    </div>
+    
+    <div class="question">
+        <strong>5) Which of the following is a physical enhancer for transdermal drug delivery?</strong>
+        <div class="option"><input type="radio" name="q4" onclick="showAnswer(4, 'Iontophoresis (IP)', 'Ethanol')"> Ethanol</div><div class="option"><input type="radio" name="q4" onclick="showAnswer(4, 'Iontophoresis (IP)', 'Iontophoresis (IP)')"> Iontophoresis (IP)</div><div class="option"><input type="radio" name="q4" onclick="showAnswer(4, 'Iontophoresis (IP)', 'Terpenes')"> Terpenes</div><div class="option"><input type="radio" name="q4" onclick="showAnswer(4, 'Iontophoresis (IP)', 'Liposomes')"> Liposomes</div>
+        <div class="answer" id="answer4"></div>
+    </div>
+    
+    <div class="question">
+        <strong>6) Iontophoresis (IP) device consists of</strong>
+        <div class="option"><input type="radio" name="q5" onclick="showAnswer(5, 'A battery, electrodes, and drug reservoir', 'A battery, electrodes, and drug reservoir')"> A battery, electrodes, and drug reservoir</div><div class="option"><input type="radio" name="q5" onclick="showAnswer(5, 'A battery, electrodes, and drug reservoir', 'translucer and coupling agent')"> translucer and coupling agent</div><div class="option"><input type="radio" name="q5" onclick="showAnswer(5, 'A battery, electrodes, and drug reservoir', 'all of the above')"> all of the above</div><div class="option"><input type="radio" name="q5" onclick="showAnswer(5, 'A battery, electrodes, and drug reservoir', 'non of the above')"> non of the above</div>
+        <div class="answer" id="answer5"></div>
+    </div>
+    
+    <div class="question">
+        <strong>7) Microneedles (MN) technology is beneficial becauses</strong>
+        <div class="option"><input type="radio" name="q6" onclick="showAnswer(6, 'It helps deliver both small and large molecules through the skin', 'It causes severe pain when applied')"> It causes severe pain when applied</div><div class="option"><input type="radio" name="q6" onclick="showAnswer(6, 'It helps deliver both small and large molecules through the skin', 'It helps deliver both small and large molecules through the skin')"> It helps deliver both small and large molecules through the skin</div><div class="option"><input type="radio" name="q6" onclick="showAnswer(6, 'It helps deliver both small and large molecules through the skin', 'It cannot be used for vaccines')"> It cannot be used for vaccines</div><div class="option"><input type="radio" name="q6" onclick="showAnswer(6, 'It helps deliver both small and large molecules through the skin', 'It works only through ultrasonic waves')"> It works only through ultrasonic waves</div>
+        <div class="answer" id="answer6"></div>
+    </div>
+    
+    <div class="question">
+        <strong>8) Which of the following is a chemical enhancer for transdermal drug delivery?</strong>
+        <div class="option"><input type="radio" name="q7" onclick="showAnswer(7, 'Ethanol', 'Microneedles')"> Microneedles</div><div class="option"><input type="radio" name="q7" onclick="showAnswer(7, 'Ethanol', 'Iontophoresis')"> Iontophoresis</div><div class="option"><input type="radio" name="q7" onclick="showAnswer(7, 'Ethanol', 'Ethanol')"> Ethanol</div><div class="option"><input type="radio" name="q7" onclick="showAnswer(7, 'Ethanol', 'Phonophoresis')"> Phonophoresis</div>
+        <div class="answer" id="answer7"></div>
+    </div>
+    
+    <div class="question">
+        <strong>9) What is the main purpose of physical enhancers in drug delivery?</strong>
+        <div class="option"><input type="radio" name="q8" onclick="showAnswer(8, 'To increase skin permeability for drug penetration', 'To improve drug stability in the external environment')"> To improve drug stability in the external environment</div><div class="option"><input type="radio" name="q8" onclick="showAnswer(8, 'To increase skin permeability for drug penetration', 'To reduce drug effectiveness inside the body')"> To reduce drug effectiveness inside the body</div><div class="option"><input type="radio" name="q8" onclick="showAnswer(8, 'To increase skin permeability for drug penetration', 'To increase skin permeability for drug penetration')"> To increase skin permeability for drug penetration</div><div class="option"><input type="radio" name="q8" onclick="showAnswer(8, 'To increase skin permeability for drug penetration', 'To protect the drug from chemical degradation')"> To protect the drug from chemical degradation</div>
+        <div class="answer" id="answer8"></div>
+    </div>
+    
+    <div class="question">
+        <strong>10) Which of the following stimulates collagen production and tightens the skin?</strong>
+        <div class="option"><input type="radio" name="q9" onclick="showAnswer(9, 'Liposomes', 'Phonophoresis')"> Phonophoresis</div><div class="option"><input type="radio" name="q9" onclick="showAnswer(9, 'Liposomes', 'Iontophoresis')"> Iontophoresis</div><div class="option"><input type="radio" name="q9" onclick="showAnswer(9, 'Liposomes', 'Liposomes')"> Liposomes</div><div class="option"><input type="radio" name="q9" onclick="showAnswer(9, 'Liposomes', 'Dermabrasion')"> Dermabrasion</div>
+        <div class="answer" id="answer9"></div>
+    </div>
+    
+    <div class="question">
+        <strong>11) How does an iontophoresis device transport drugs?</strong>
+        <div class="option"><input type="radio" name="q10" onclick="showAnswer(10, 'By applying an electric potential gradient', 'Through ultrasonic waves')"> Through ultrasonic waves</div><div class="option"><input type="radio" name="q10" onclick="showAnswer(10, 'By applying an electric potential gradient', 'By applying an electric potential gradient')"> By applying an electric potential gradient</div><div class="option"><input type="radio" name="q10" onclick="showAnswer(10, 'By applying an electric potential gradient', 'By dissolving the drug in skin lipids')"> By dissolving the drug in skin lipids</div><div class="option"><input type="radio" name="q10" onclick="showAnswer(10, 'By applying an electric potential gradient', 'Using a magnetic current')"> Using a magnetic current</div>
+        <div class="answer" id="answer10"></div>
+    </div>
+    
+    <div class="question">
+        <strong>12) Which of the following are chemical penetration enhancers?</strong>
+        <div class="option"><input type="radio" name="q11" onclick="showAnswer(11, 'all of the above', 'Ethanol')"> Ethanol</div><div class="option"><input type="radio" name="q11" onclick="showAnswer(11, 'all of the above', 'Dimethyl sulfoxide (DMSO)')"> Dimethyl sulfoxide (DMSO)</div><div class="option"><input type="radio" name="q11" onclick="showAnswer(11, 'all of the above', 'Azone')"> Azone</div><div class="option"><input type="radio" name="q11" onclick="showAnswer(11, 'all of the above', 'all of the above')"> all of the above</div>
+        <div class="answer" id="answer11"></div>
+    </div>
+    
+    <div class="question">
+        <strong>13) What is the main function of electroporation?</strong>
+        <div class="option"><input type="radio" name="q12" onclick="showAnswer(12, 'To create temporary aqueous pores in the skin', 'To create temporary aqueous pores in the skin')"> To create temporary aqueous pores in the skin</div><div class="option"><input type="radio" name="q12" onclick="showAnswer(12, 'To create temporary aqueous pores in the skin', 'To move ions through the skin using an electric field')"> To move ions through the skin using an electric field</div><div class="option"><input type="radio" name="q12" onclick="showAnswer(12, 'To create temporary aqueous pores in the skin', 'To dissolve lipids and enhance fat loss')"> To dissolve lipids and enhance fat loss</div><div class="option"><input type="radio" name="q12" onclick="showAnswer(12, 'To create temporary aqueous pores in the skin', 'To apply ultrasound for drug penetration')"> To apply ultrasound for drug penetration</div>
+        <div class="answer" id="answer12"></div>
+    </div>
+    
+    <div class="question">
+        <strong>14) Which physical enhancement technique involves pulses of electricity to open skin pores?</strong>
+        <div class="option"><input type="radio" name="q13" onclick="showAnswer(13, 'Electroporation', 'Electroporation')"> Electroporation</div><div class="option"><input type="radio" name="q13" onclick="showAnswer(13, 'Electroporation', 'Iontophoresis')"> Iontophoresis</div><div class="option"><input type="radio" name="q13" onclick="showAnswer(13, 'Electroporation', 'Phonophoresis')"> Phonophoresis</div><div class="option"><input type="radio" name="q13" onclick="showAnswer(13, 'Electroporation', 'Dermabrasion')"> Dermabrasion</div>
+        <div class="answer" id="answer13"></div>
+    </div>
+    
+    <div class="question">
+        <strong>15) In iontophoresis, what happens if the drug has a positive charge?</strong>
+        <div class="option"><input type="radio" name="q14" onclick="showAnswer(14, 'It is repelled by the anode (+) and moves toward the cathode (-)', 'It is attracted to the cathode (+)')"> It is attracted to the cathode (+)</div><div class="option"><input type="radio" name="q14" onclick="showAnswer(14, 'It is repelled by the anode (+) and moves toward the cathode (-)', 'It is repelled by the anode (+) and moves toward the cathode (-)')"> It is repelled by the anode (+) and moves toward the cathode (-)</div><div class="option"><input type="radio" name="q14" onclick="showAnswer(14, 'It is repelled by the anode (+) and moves toward the cathode (-)', 'It binds to lipids in the skin')"> It binds to lipids in the skin</div><div class="option"><input type="radio" name="q14" onclick="showAnswer(14, 'It is repelled by the anode (+) and moves toward the cathode (-)', 'It stays in the reservoir without movement')"> It stays in the reservoir without movement</div>
+        <div class="answer" id="answer14"></div>
+    </div>
+    
+    <div class="question">
+        <strong>16) Which method combines ultrasound with topical drugs to increase absorption?</strong>
+        <div class="option"><input type="radio" name="q15" onclick="showAnswer(15, 'Phonophoresis', 'Electroporation')"> Electroporation</div><div class="option"><input type="radio" name="q15" onclick="showAnswer(15, 'Phonophoresis', 'Iontophoresis')"> Iontophoresis</div><div class="option"><input type="radio" name="q15" onclick="showAnswer(15, 'Phonophoresis', 'Phonophoresis')"> Phonophoresis</div><div class="option"><input type="radio" name="q15" onclick="showAnswer(15, 'Phonophoresis', 'Microneedles')"> Microneedles</div>
+        <div class="answer" id="answer15"></div>
+    </div>
+    
+    <div class="question">
+        <strong>17) Which of the following is NOT a requirement for an ideal penetration enhancer?</strong>
+        <div class="option"><input type="radio" name="q16" onclick="showAnswer(16, 'Pharmacologically active', 'Pharmacologically active')"> Pharmacologically active</div><div class="option"><input type="radio" name="q16" onclick="showAnswer(16, 'Pharmacologically active', 'Non-toxic and non-irritating')"> Non-toxic and non-irritating</div><div class="option"><input type="radio" name="q16" onclick="showAnswer(16, 'Pharmacologically active', 'Reversible effect on skin')"> Reversible effect on skin</div><div class="option"><input type="radio" name="q16" onclick="showAnswer(16, 'Pharmacologically active', 'Odorless and colorless')"> Odorless and colorless</div>
+        <div class="answer" id="answer16"></div>
+    </div>
+    
+    <div class="question">
+        <strong>18) Why is ethanol used as a chemical enhancer?</strong>
+        <div class="option"><input type="radio" name="q17" onclick="showAnswer(17, 'both a and b', 'it disrupt the intercellular lipid packing')"> it disrupt the intercellular lipid packing</div><div class="option"><input type="radio" name="q17" onclick="showAnswer(17, 'both a and b', 'interact with lipid bilayer head groups')"> interact with lipid bilayer head groups</div><div class="option"><input type="radio" name="q17" onclick="showAnswer(17, 'both a and b', 'it act as a solvent within the stratum corneum')"> it act as a solvent within the stratum corneum</div><div class="option"><input type="radio" name="q17" onclick="showAnswer(17, 'both a and b', 'both a and b')"> both a and b</div>
+        <div class="answer" id="answer17"></div>
+    </div>
+    
+    <div class="question">
+        <strong>19) What is the purpose of dermabrasion in transdermal drug delivery?</strong>
+        <div class="option"><input type="radio" name="q18" onclick="showAnswer(18, 'To remove or reduce the stratum corneum barrier', 'To remove or reduce the stratum corneum barrier')"> To remove or reduce the stratum corneum barrier</div><div class="option"><input type="radio" name="q18" onclick="showAnswer(18, 'To remove or reduce the stratum corneum barrier', 'To apply electric fields to push drugs through the skin')"> To apply electric fields to push drugs through the skin</div><div class="option"><input type="radio" name="q18" onclick="showAnswer(18, 'To remove or reduce the stratum corneum barrier', 'To introduce nanoparticles for drug delivery')"> To introduce nanoparticles for drug delivery</div><div class="option"><input type="radio" name="q18" onclick="showAnswer(18, 'To remove or reduce the stratum corneum barrier', 'To increase skin hydration')"> To increase skin hydration</div>
+        <div class="answer" id="answer18"></div>
+    </div>
+    
+    <div class="question">
+        <strong>20) Which of the following is a particulate enhancer in transdermal drug delivery?</strong>
+        <div class="option"><input type="radio" name="q19" onclick="showAnswer(19, 'Liposomes', 'Liposomes')"> Liposomes</div><div class="option"><input type="radio" name="q19" onclick="showAnswer(19, 'Liposomes', 'Ethanol')"> Ethanol</div><div class="option"><input type="radio" name="q19" onclick="showAnswer(19, 'Liposomes', 'Electroporation')"> Electroporation</div><div class="option"><input type="radio" name="q19" onclick="showAnswer(19, 'Liposomes', 'Dermabrasion')"> Dermabrasion</div>
+        <div class="answer" id="answer19"></div>
+    </div>
+    
+</body>
+</html>
