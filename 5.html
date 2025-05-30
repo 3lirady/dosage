@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ointment Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+    h2 { color: #333; }
+    .question { background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .options button {
+      display: block; margin: 5px 0; padding: 10px;
+      width: 100%; text-align: left; border: none;
+      border-radius: 5px; background: #eee; cursor: pointer;
+    }
+    .options button.correct { background-color: #c8f7c5; }
+    .options button.wrong { background-color: #f7c5c5; }
+    .options button:disabled { cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+<h2>Ointment Quiz</h2>
+
+<div id="quiz"></div>
+
+<script>
+  const questions = [
+    {
+      q: "1) Useful to help incorporate a water-soluble drug like tobramycin sulfate into oleaginous base:",
+      options: ["Hydrophilic Petrolatum", "Aquaphor", "Aquabase", "Modified Lanolin"],
+      answer: 3
+    },
+    {
+      q: "2) Ointment base that can absorb serous discharges:",
+      options: ["Hydrophilic Ointment", "Aquabase", "Hydrophilic Petrolatum", "Modified Lanolin"],
+      answer: 0
+    },
+    {
+      q: "3) Unguator can be used by:",
+      options: ["Incorporation method", "Fusion method", "Spatulation method", "All of the above"],
+      answer: 0
+    },
+    {
+      q: "4) The levigating agent may be:",
+      options: [
+        "Mineral oil for water-external bases",
+        "Glycerin for oil-external bases",
+        "Mineral oil for oil-external bases",
+        "Both (b) and (c)"
+      ],
+      answer: 3
+    },
+    {
+      q: "5) Ointment bases liable to oxidation include:",
+      options: ["Wool fat", "Hydrophilic petrolatum", "PEG", "Petroleum jelly"],
+      answer: 0
+    },
+    {
+      q: "6) An ointment base should be:",
+      options: ["Compatible with skin", "pH dependent", "All of the above", "None of the above"],
+      answer: 0
+    },
+    {
+      q: "7) Ideal ointment base for hydrolyzed drugs is:",
+      options: ["Oleaginous bases", "Absorption bases", "Water removable bases", "Water soluble bases"],
+      answer: 0
+    },
+    {
+      q: "8) Best occlusive action obtained by:",
+      options: ["Oleaginous bases", "Absorption bases", "Water removable bases", "Water soluble bases"],
+      answer: 0
+    },
+    {
+      q: "9) All are oleaginous bases EXCEPT:",
+      options: ["Aquaphor", "Hydrophilic Petrolatum", "Lanolin", "All of the above"],
+      answer: 2
+    },
+    {
+      q: "10) Petroleum jelly is synonym to:",
+      options: ["Petrolatum", "White petrolatum", "Yellow ointment", "White ointment"],
+      answer: 0
+    },
+    {
+      q: "11) Simple ointment is synonym to:",
+      options: ["Petrolatum", "White petrolatum", "Yellow ointment", "White ointment"],
+      answer: 2
+    },
+    {
+      q: "12) Used in ointment preservation:",
+      options: ["Methylparaben", "Propylparaben", "Benzoic acid", "All of the above"],
+      answer: 3
+    },
+    {
+      q: "13) True about PEG:",
+      options: [
+        "Numeric designations refer to molecular weight",
+        "Has MW 200–400000",
+        "Forms hydrogen bonds with skin water",
+        "All of the above"
+      ],
+      answer: 3
+    },
+    {
+      q: "14) Water number equals 200 gm, how much water added?",
+      options: ["200 gm", "Less than 200", "More than 200", "Same amount as base"],
+      answer: 1
+    },
+    {
+      q: "15) In geometric dilution, drug to base ratio is:",
+      options: ["1:2", "2:1", "2:3", "1:1"],
+      answer: 3
+    }
+  ];
+
+  const quizDiv = document.getElementById("quiz");
+
+  questions.forEach((question, i) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    const title = document.createElement("p");
+    title.textContent = question.q;
+    div.appendChild(title);
+
+    const optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+
+    question.options.forEach((opt, j) => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.onclick = () => {
+        const allButtons = optionsDiv.querySelectorAll("button");
+        allButtons.forEach((b, index) => {
+          b.disabled = true;
+          if (index === question.answer) {
+            b.classList.add("correct");
+          }
+        });
+        if (j !== question.answer) {
+          btn.classList.add("wrong");
+        }
+      };
+      optionsDiv.appendChild(btn);
+    });
+
+    div.appendChild(optionsDiv);
+    quizDiv.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
