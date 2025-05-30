@@ -2,99 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pharmaceutics Quiz</title>
+  <title>Pharmaceutics Quiz (Your Answers)</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #f9f9f9;
       padding: 20px;
     }
     .question {
-      background: white;
+      background: #fff;
       padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .options button {
       display: block;
-      margin: 5px 0;
-      padding: 10px;
       width: 100%;
+      padding: 10px;
+      margin: 5px 0;
       border: none;
       border-radius: 5px;
-      background-color: #e0e0e0;
+      background-color: #eee;
       cursor: pointer;
+      transition: 0.3s;
     }
-    .correct {
-      background-color: #c8e6c9 !important;
+    .options button:hover {
+      background-color: #ddd;
     }
-    .incorrect {
-      background-color: #ffcdd2 !important;
+    .selected {
+      background-color: #d0f0fd !important;
     }
     .answer {
       margin-top: 10px;
       font-weight: bold;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-<h2>Pharmaceutics Quiz</h2>
-
+<h2>Pharmaceutics Quiz (Your Answers)</h2>
 <div id="quiz"></div>
 
 <script>
 const questions = [
   {
     q: "1) Topically applied ibuprofen gels to treat musculoskeletal conditions is described as:",
-    options: ["Regionally acting preparation", "Dermatological products", "Transdermal products", "Topically acting preparation"],
-    answer: 3
+    options: ["a) Regionally acting preparation", "b) Dermatological products", "c) Transdermal products", "d) Topically acting preparation"],
+    answerText: "Your answer: a) Regionally acting preparation"
   },
   {
     q: "2) Dusting powders are applied to the skin for a surface effect such as:",
-    options: ["Drying action", "Lubricating action", "Antibacterial action", "All of the above"],
-    answer: 3
+    options: ["a) Drying action", "b) Lubricating action", "c) Antibacterial action", "d) All of the above"],
+    answerText: "Your answer: d) All of the above"
   },
   {
-    q: "3) Semisolid dosage forms combine benefits of liquid and solid dosage forms. This is mainly due to unique rheological behavior of semisolids which is:",
-    options: ["Pseudo-plastic rheological behavior", "Dilatant rheological behavior", "Plastic rheological behavior", "All of the above"],
-    answer: 0
+    q: "3) Semisolid dosage forms... unique rheological behavior is:",
+    options: ["a) Pseudo-plastic rheological behavior", "b) Dilatant rheological behavior", "c) Plastic rheological behavior", "d) All of the above"],
+    answerText: "Your answer: c) Plastic rheological behavior"
   },
   {
     q: "4) Ointments can be applied on:",
-    options: ["skin", "mucous membrane", "all of the above", "none of the above"],
-    answer: 2
+    options: ["a) skin", "b) mucous membrane", "c) all of the above", "d) none of the above"],
+    answerText: "Your answer: c) All of the above"
   },
   {
     q: "5) Unmedicated semisolids can be used as:",
-    options: ["protectant", "lubricant", "physical barrier", "all of the above"],
-    answer: 3
+    options: ["a) protectant", "b) lubricant", "c) physical barrier", "d) all of the above"],
+    answerText: "Your answer: d) All of the above"
   },
   {
-    q: "6) Action of TDDSs depends on:",
-    options: ["skin condition", "physicochemical properties of the drug", "physicochemical properties of the vehicle", "all of the above"],
-    answer: 3
+    q: "6) Action of TDDSs depend on:",
+    options: ["a) skin condition", "b) physicochemical properties of the drug", "c) physicochemical properties of the vehicle", "d) all of the above"],
+    answerText: "Your answer: d) All of the above"
   },
   {
     q: "7) Liquid dosage form used for dermatological products:",
-    options: ["lotion", "paints", "all of the above", "none of the above"],
-    answer: 2
+    options: ["a) lotion", "b) paints", "c) all of the above", "d) none of the above"],
+    answerText: "Your answer: c) All of the above"
   },
   {
     q: "8) Ideal physical properties of semisolid dosage forms:",
-    options: ["Smooth texture", "Non-irritating", "both a and b", "none of the above"],
-    answer: 2
+    options: ["a) Smooth texture", "b) Non-irritating", "c) both a and b", "d) none of the above"],
+    answerText: "Your answer: a) Smooth texture"
   },
   {
     q: "9) The drug is released onto the skin surface by:",
-    options: ["diffusion", "active transport", "passive transport", "a and c"],
-    answer: 3
+    options: ["a) diffusion", "b) active transport", "c) passive transport", "d) a and c"],
+    answerText: "Your answer: d) a and c"
   },
   {
     q: "10) The following are functions of skin:",
-    options: ["protection", "sensation", "Synthesis of vit. D.", "all of the above"],
-    answer: 3
+    options: ["a) protection", "b) sensation", "c) Synthesis of vit. D.", "d) all of the above"],
+    answerText: "Your answer: d) all of the above"
   }
 ];
 
@@ -112,15 +113,16 @@ questions.forEach((q, index) => {
     const btn = document.createElement("button");
     btn.textContent = opt;
     btn.onclick = () => {
-      if (btn.classList.contains("clicked")) return;
       const buttons = btn.parentElement.querySelectorAll("button");
-      buttons.forEach(b => b.disabled = true);
-      if (i === q.answer) {
-        btn.classList.add("correct");
-      } else {
-        btn.classList.add("incorrect");
-        buttons[q.answer].classList.add("correct");
-      }
+      buttons.forEach(b => {
+        b.disabled = true;
+        b.classList.remove("selected");
+      });
+      btn.classList.add("selected");
+      const ans = document.createElement("div");
+      ans.className = "answer";
+      ans.textContent = q.answerText;
+      qDiv.appendChild(ans);
     };
     optsDiv.appendChild(btn);
   });
