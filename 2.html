@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skin & TDDS Quiz (Your Answers)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .question {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #eee;
+      cursor: pointer;
+    }
+    .options button:hover {
+      background-color: #ddd;
+    }
+    .selected {
+      background-color: #cce5ff !important;
+    }
+    .answer {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Skin & TDDS Quiz (Your Answers)</h2>
+<div id="quiz"></div>
+
+<script>
+const questions = [
+  "1) The extent and duration of diffusion of API onto the skin from semisolid preparations depend mainly on:",
+  "2) Which of the skin layers providing the structural support of the skin?",
+  "3) Which of the following regarded as the rate-limiting factor in the penetration of therapeutic agents through the skin?",
+  "4) Which of the following help to maintain surface pH of the skin of around 5.5 ?",
+  "5) Drugs can penetrate skin barrier by:",
+  "6) Drugs that promote softening and dissolution of excessively produced corneocyte",
+  "7) The target region of the skin for insect repellants is:",
+  "8) The main therapies aimed at the horny layer are to:",
+  "9) Hyperhidrosis can be treated by:",
+  "10) Small ions and amino acids can transport across the cell monolayer with concentration gradient by:",
+  "11) Insulin can cross the epithelial cell of the skin through:",
+  "12) Viable epidermis contains:",
+  "13) One of stratum corneum diseases is:",
+  "14) Improve emollience of skin:",
+  "15) Disadvantages of TDDS:",
+  "16) Diffusion:",
+  "17) In Active Transport:",
+  "18) ……….usually cross epithelial cell through their concentration gradients:",
+  "19) Viable epidermis and dermis problems include:",
+  "20) Surface treatment:"
+];
+
+const options = [
+  ["a) Physicochemical properties of the drug", "b) The type of base", "c) Skin condition", "d) All of the above"],
+  ["a) Dermis", "b) Epidermis", "c) Hypodermis", "d) Collagen"],
+  ["a) Stratum corneum", "b) Horny layer", "c) Non-viable epidermis", "d) All of the above"],
+  ["a) Sweat gland", "b) Sebaceous glands", "c) Hair follicles", "d) Langrhans cells"],
+  ["a) Transcellular route", "b) Intercellular route", "c) Trans-appendageal route", "d) All of the above"],
+  ["a) Keratolytic", "b) Exfoliants", "c) Humectant", "d) Emollient"],
+  ["a) Skin surface", "b) Horny layer", "c) Upper dermis", "d) Viable epidermis"],
+  ["a) Improve emollience of the skin", "b) Stimulate sloughing stratum corneum", "c) Decrease the thickness of stratum corneum", "d) All of the above"],
+  ["a) Aluminum chloride hexahydrate", "b) Antiperspirants", "c) Drugs that prevent or decrease sweat secretion of the sweat glands", "d) All of the above"],
+  ["a) Specialized transport protein", "b) The water filled channels at the tight junctions", "c) Both (a) and (b)", "d) Endocytosis"],
+  ["a) Transcytosis", "b) Passive Transport", "c) Active transport", "d) Endocytosis"],
+  ["a) Keratinocytes", "b) Melanocytes", "c) Langerhans", "d) all of the above"],
+  ["a) chapping", "b) psoriasis", "c) all of the above", "d) non of the above"],
+  ["a) occlusive", "b) emollients", "c) humectants", "d) all of the above"],
+  ["a) Local irritation at site of application", "b) May display irregular absorption", "c) Skin low permeability limits the number of drugs that can be used", "d) all of the above"],
+  ["a) through concentration gradients", "b) Passive Transport", "c) no energy needed", "d) all of the above"],
+  ["a) through concentration gradients", "b) need carrier", "c) energy needed", "d) both b and c"],
+  ["a) non-ionic solute", "b) ions", "c) sugar", "d) all of the above"],
+  ["a) dermatitis", "b) psoriasis", "c) non of the above", "d) all of the above"],
+  ["a) Sunscreens", "b) occlusive", "c) antimicrobials", "d) all of the above"]
+];
+
+const answers = ["d","a","a","b","d","a","a","d","d","c","a","d","c","d","d","d","d","d","a","d"];
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((q, idx) => {
+  const div = document.createElement("div");
+  div.className = "question";
+  div.innerHTML = `<p>${q}</p>`;
+
+  const optsDiv = document.createElement("div");
+  optsDiv.className = "options";
+
+  options[idx].forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.onclick = () => {
+      const all = btn.parentElement.querySelectorAll("button");
+      all.forEach(b => {
+        b.disabled = true;
+        b.classList.remove("selected");
+      });
+      btn.classList.add("selected");
+      const ans = document.createElement("div");
+      ans.className = "answer";
+      ans.textContent = `Your answer: ${answers[idx]}) ${options[idx][["a","b","c","d"].indexOf(answers[idx])].split(') ')[1]}`;
+      div.appendChild(ans);
+    };
+    optsDiv.appendChild(btn);
+  });
+
+  div.appendChild(optsDiv);
+  quiz.appendChild(div);
+});
+</script>
+
+</body>
+</html>
