@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TDDS Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+    h2 { color: #333; }
+    .question { background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .options button {
+      display: block; margin: 5px 0; padding: 10px;
+      width: 100%; text-align: left; border: none;
+      border-radius: 5px; background: #eee; cursor: pointer;
+    }
+    .options button.correct { background-color: #c8f7c5; }
+    .options button.wrong { background-color: #f7c5c5; }
+    .options button:disabled { cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+<h2>TDDS Quiz</h2>
+
+<div id="quiz"></div>
+
+<script>
+  const questions = [
+    {
+      q: "1) Best site for application of scopolamine transdermal therapeutic system:",
+      options: ["Post auricular", "Chest area", "Face", "Abdominal area"],
+      answer: 0
+    },
+    {
+      q: "2) Evidence of percutaneous drug absorption may be found through:",
+      options: ["Measurable blood levels", "Detectable urinary excretion", "Clinical response", "All of the above"],
+      answer: 3
+    },
+    {
+      q: "3) Role of backing layer in TDDS:",
+      options: ["Protects drug reservoir", "Provides support", "Accepts printings", "All of the above"],
+      answer: 3
+    },
+    {
+      q: "4) TDDS is suitable for drugs with:",
+      options: ["Extensive first pass", "Narrow therapeutic window", "Short half-life", "All of the above"],
+      answer: 3
+    },
+    {
+      q: "5) Release liner role:",
+      options: ["Prevents loss of drug", "Prevents contamination", "Both a and b", "Provides plasticity"],
+      answer: 2
+    },
+    {
+      q: "6) Main advantage of transdermal patches:",
+      options: ["Invasive delivery", "Avoid first-pass metabolism", "Immediate absorption", "High MW drug delivery"],
+      answer: 1
+    },
+    {
+      q: "7) Mechanism of patches involves:",
+      options: ["Injection", "Skin diffusion", "Lung absorption", "Stomach breakdown"],
+      answer: 1
+    },
+    {
+      q: "8) Not an advantage of TDDS:",
+      options: ["Avoids GI degradation", "Short half-life drugs", "Works for all drugs", "Controlled release"],
+      answer: 2
+    },
+    {
+      q: "9) Rate-controlling membrane does what?",
+      options: ["Drug metabolism", "Controls release rate", "Skin permeability", "Improves blood flow"],
+      answer: 1
+    },
+    {
+      q: "10) Component provides support and accepts printings:",
+      options: ["Release liner", "Backing layer", "Adhesive", "Drug reservoir"],
+      answer: 1
+    },
+    {
+      q: "11) Release liner is:",
+      options: ["Removed before application", "The active ingredient", "Diffusion responsible", "Permanent part"],
+      answer: 0
+    },
+    {
+      q: "12) Not typically used in patches:",
+      options: ["Scopolamine", "Lidocaine", "Nitroglycerin", "Insulin"],
+      answer: 3
+    },
+    {
+      q: "13) Essential property for TDDS drugs:",
+      options: ["High MW", "Hydrophilicity", "Penetrate stratum corneum", "Liver degradation"],
+      answer: 2
+    },
+    {
+      q: "14) Polyethylene is used as:",
+      options: ["Backing layer", "Polymer matrix", "Drug reservoir", "All of the above"],
+      answer: 3
+    },
+    {
+      q: "15) Limitation of TDDS:",
+      options: ["Immediate effect", "Must have good properties", "Works with large molecules", "Unlimited dose"],
+      answer: 1
+    },
+  ];
+
+  const quizDiv = document.getElementById("quiz");
+
+  questions.forEach((question, i) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    const title = document.createElement("p");
+    title.textContent = question.q;
+    div.appendChild(title);
+
+    const optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+
+    question.options.forEach((opt, j) => {
+      const btn = document.createElement("button");
+      btn.textContent = opt;
+      btn.onclick = () => {
+        const allButtons = optionsDiv.querySelectorAll("button");
+        allButtons.forEach((b, index) => {
+          b.disabled = true;
+          if (index === question.answer) {
+            b.classList.add("correct");
+          }
+        });
+        if (j !== question.answer) {
+          btn.classList.add("wrong");
+        }
+      };
+      optionsDiv.appendChild(btn);
+    });
+
+    div.appendChild(optionsDiv);
+    quizDiv.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
