@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cosmetic Creams Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    .question h3 {
+      margin: 0 0 10px;
+    }
+    .option {
+      margin: 5px 0;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .correct {
+      background-color: #c8f7c5;
+    }
+    .incorrect {
+      background-color: #f7c5c5;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cosmetic Creams Quiz</h1>
+  <div id="quiz"></div>
+
+  <script>
+    const questions = [
+      {
+        q: "The role of teropenol in cleansing cream is",
+        options: ["Humectant", "Penetration enhancer", "UV photoprotective", "Reduces trans-epidermal water loss from skin."],
+        answer: 1
+      },
+      {
+        q: "Cetyl Alcohol is added to Vanishing cream to",
+        options: [
+          "Impart a very attractive appearance to the product.",
+          "Makes the final product fine and smooth",
+          "Help to improve the spreading properties of the cream",
+          "Help to retain the suppleness of the skin"
+        ],
+        answer: 1
+      },
+      {
+        q: "Cold-Cream is.",
+        options: ["Night Cream", "Cleansing Cream", "W/O emulsion", "All of the above"],
+        answer: 3
+      },
+      {
+        q: "In cosmetics creams, beeswax is mainly used as",
+        options: ["Emulsifying agent", "Stiffener", "Gentle skin adhesive", "All of the above"],
+        answer: 3
+      },
+      {
+        q: "β-carotene present in beeswax act as",
+        options: ["Anti-aging", "Anti-inflammatory", "Antioxidant", "UV photoprotective"],
+        answer: 2
+      },
+      {
+        q: "Regular use of a cleansing cream makes the skin soft, glowing, fresh and young since they",
+        options: [
+          "Draws out the colour from the make-up and impurities from the skin",
+          "Cleanse the skin without stripping it of its natural oils.",
+          "Maintains the pH balance thereby protects the skin",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "The role of propylene glycol in cleansing cream is:",
+        options: ["Antioxidant", "Penetration enhancer", "Humectant", "Levigating agent"],
+        answer: 2
+      },
+      {
+        q: "Modern foundation creams contain not only emollients and moisturizers but also contain",
+        options: ["Antioxidant", "Flavonoids", "Hyaluronic acid", "Sunscreen agent"],
+        answer: 3
+      },
+      {
+        q: "Sorbitol is added to Vanishing cream to",
+        options: [
+          "Improve the spreading properties of the cream",
+          "Minimize the drying out of the cream on exposure to the air",
+          "Preserve its consistency",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "The ethanolamines have been recommended as alkalies for vanishing creams due to",
+        options: [
+          "Their mild alkalinity",
+          "The good texture of the resulting creams",
+          "Their pearly appearance",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "Regarding to Hormone Creams, all the following are true except",
+        options: [
+          "The cream must promote a slow uniform absorption of the estrogen",
+          "Should not alter the normal pH of the skin.",
+          "Alcohol or organic solvent should be used as they tend to increase the speed of absorption of the hormone.",
+          "A W/O emulsion base is preferred as its continuous oil phase provides direct contact with the lipids of the skin and acts as a protective covering."
+        ],
+        answer: 2
+      },
+      {
+        q: "Mercury reduce the melanin content and makes the skin fairer through.",
+        options: [
+          "Inhibition tyrosinase enzymes",
+          "Inhibition Tyrosine hydroxylase",
+          "Destruction of melanocytes",
+          "Increase pigment migration"
+        ],
+        answer: 0
+      },
+      {
+        q: "Regarding to Massage Creams, all the following are true except",
+        options: [
+          "They are designed to remain mobile on the skin even after vigorous rubbing.",
+          "They must be composed with a substantial oil phase",
+          "It helps to prevent the buildup of large number of dead surface cell",
+          "Increase thickening of epithelial and keep blood supply in a good condition."
+        ],
+        answer: 3
+      },
+      {
+        q: "Bismuth subnitrate is an active ingredient in mercury bleach creams as it",
+        options: [
+          "Decrease pigment formation",
+          "Inhibits the activation of tyrosinase",
+          "Reduces irritation possibility",
+          "None of the above"
+        ],
+        answer: 2
+      },
+      {
+        q: "Benefits of cold creams are:",
+        options: [
+          "Provides intense hydration",
+          "Helps nourish and restore skin's natural protective barrier",
+          "Soothes drying effects of environmental aggressors, skin disorders",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "In cosmetics creams, beeswax is mainly used as",
+        options: ["Emulsifying agent", "Stiffener", "Gentle skin adhesive", "All of the above"],
+        answer: 3
+      },
+      {
+        q: "Materials Used in the Preparation of Cold/Cleansing Creams",
+        options: ["Stearic acid", "Cetyl Alcohol", "Humectants", "None of the above"],
+        answer: 3
+      },
+      {
+        q: "Action of mineral oil in cold creams is",
+        options: [
+          "Promotes the cleansing",
+          "Retains moisture on the skin",
+          "Forms an anionic emulsifier",
+          "a and b"
+        ],
+        answer: 3
+      },
+      {
+        q: "β-carotene present in beeswax",
+        options: [
+          "Converts into vitamin A",
+          "Delays collagen degradation",
+          "Stimulates mitotic division",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "Night or massage creams have the following effects, EXCEPT:",
+        options: [
+          "Moisturizing effect",
+          "Decrease thickening of epithelial",
+          "Keep blood supply in a good condition",
+          "None of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "Lanolin is used in",
+        options: [
+          "Ointments",
+          "Cleansing creams",
+          "Night or massage creams",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "The ethanolamines are most commonly used alkalis in vanishing creams due to",
+        options: [
+          "Their mild alkalinity",
+          "The good texture of the resulting creams",
+          "Their pearly appearance",
+          "All of the above"
+        ],
+        answer: 3
+      },
+      {
+        q: "……… is an example for cold creams, while ……… is an example for vanishing creams.",
+        options: [
+          "Hormone cream, bleaching creams",
+          "Massage creams, hand creams",
+          "Both a and b",
+          "Bleaching creams, hormone cream"
+        ],
+        answer: 2
+      }
+    ];
+
+    const quizDiv = document.getElementById("quiz");
+
+    questions.forEach((question, index) => {
+      const qDiv = document.createElement("div");
+      qDiv.className = "question";
+
+      const qTitle = document.createElement("h3");
+      qTitle.textContent = `${index + 1}) ${question.q}`;
+      qDiv.appendChild(qTitle);
+
+      question.options.forEach((option, i) => {
+        const btn = document.createElement("div");
+        btn.className = "option";
+        btn.textContent = option;
+        btn.addEventListener("click", () => {
+          const allOptions = qDiv.querySelectorAll(".option");
+          allOptions.forEach((opt, j) => {
+            opt.style.pointerEvents = "none";
+            if (j === question.answer) opt.classList.add("correct");
+            else if (j === i) opt.classList.add("incorrect");
+          });
+        });
+        qDiv.appendChild(btn);
+      });
+
+      quizDiv.appendChild(qDiv);
+    });
+  </script>
+</body>
+</html>
